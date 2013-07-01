@@ -20,12 +20,13 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network :forwarded_port, host: 8080, guest: 80
-  config.vm.network :forwarded_port, host: 9003, guest: 9005
-
+  
+  #config.vm.network :private_network, ip: "127.0.0.1"
+  
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-   config.vm.network :public_network
+   config.vm.network :private_network, ip: "127.0.0.1"
   
   #config.ssh.default.private_key_path ="/Users/garethedwards/.ssh/key"
   

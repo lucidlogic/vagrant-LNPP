@@ -13,7 +13,7 @@ class provision::php::modules
     notify => $notify_services
   }
 
-  php::module { [ "mysql", "mcrypt", "memcache" ,"curl" ]:
+  php::module { [ "mysql", "mcrypt", "memcache" ,"curl" , "xdebug"]:
     notify  => $notify_services,
     content => $php_ini_dir
   }
