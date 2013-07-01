@@ -73,5 +73,7 @@ percona::rights { "user@localhost":
 
 The default Percona admin user has the following credentials: `root:vagrant`.
 
+sudo ipfw add 100 fwd 127.0.0.1,8080 tcp from any to me 80
+
 ---
 Copyright 2013 @ [Kasper Kronborg Isager](http://webhutt.com). Licensed under the terms of the [MIT License](LICENSE.md)
