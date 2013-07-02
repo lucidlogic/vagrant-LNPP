@@ -14,6 +14,6 @@ class provision::params
 
   # Database variables
   $dbuser         = "root"
-  $dbpassword     = "root"
+  $dbpassword     = "vagrant"
   $dbconfig       = "/etc/.puppet.cnf"
 }

@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
+  config.vm.network :private_network, ip: "192.168.0.3"
   config.vm.network :forwarded_port, host: 8080, guest: 80
   
   #config.vm.network :private_network, ip: "127.0.0.1"
@@ -26,7 +27,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-   config.vm.network :private_network, ip: "127.0.0.1"
+   
   
   #config.ssh.default.private_key_path ="/Users/garethedwards/.ssh/key"
   
@@ -34,7 +35,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "webroot", "/var/www", :nfs => false
+  config.vm.synced_folder "webroot", "/var/www", :nfs => true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -75,6 +76,7 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provision :puppet do |puppet|
     puppet.manifest_file  = "bootstrap.pp"
+   
   end
 
   # Provision the box according to the main provision manifest
@@ -82,5 +84,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision :puppet do |puppet|
     puppet.module_path    = "modules"
     puppet.manifest_file  = "provision.pp"
+  
   end
 end
