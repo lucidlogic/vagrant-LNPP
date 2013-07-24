@@ -13,5 +13,9 @@ class bootstrap::packages
   
   package { "solr-tomcat":
     ensure => installed
-  }
+  } ->
+  
+  package { "php5-gd":
+    ensure => installed
+  } 
 }
